@@ -3,13 +3,15 @@
   "builds": [
     {
       "src": "dice_app.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb" }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dice_app.py"
+      "dest": "/dice_app.py"
     }
   ]
 }
+
