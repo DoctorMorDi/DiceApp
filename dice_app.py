@@ -1,6 +1,7 @@
 # dice_app.py
 from flask import Flask, request, jsonify
 import random
+import os
 from waitress import serve
 
 app = Flask(__name__)
@@ -25,4 +26,7 @@ def roll_dice():
         return jsonify({"error": "Invalid dice type!"}), 400
 
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=5000)
+    if os.environ.get('VERCEL') != None:
+        serve(app, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    else:
+        app.run(debug=True)
