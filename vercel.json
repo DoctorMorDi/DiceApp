@@ -1,17 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "dice_app.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
-    }
+    { "src": "dice_app.py", "use": "@vercel/python" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/dice_app.py"
-    }
+    { "src": "/(.*)", "dest": "dice_app.py" }
   ]
 }
+
 
